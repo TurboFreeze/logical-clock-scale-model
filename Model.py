@@ -65,4 +65,8 @@ class Model():
                 
     def log_send(self, recipient):
         log_entry = "SEND: [global] " + str(datetime.now()) + "; [queue length] " + str(len(self.messages)) + "; [logical clock time] " + str(self.clock) + "\n"
+<<<<<<< HEAD
         self.log.write(log_entry)
+=======
+        self.log.write(log_entry)
+>>>>>>> 9bd1c8c4239e8747d5d5292dd6689b8b056cb2b1
