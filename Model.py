@@ -3,12 +3,12 @@ from random import randint
 from time import sleep
 
 class Model():
-    
-    
+
+
     ticks = None
     parent = None
     vm_id = None
-    
+
     def __init__(self, ticks, vm_id, controller):
         print "model init", ticks
         self.ticks = ticks
@@ -16,14 +16,14 @@ class Model():
         self.parent = controller
         self.recipient_a = (self.vm_id + 1) % 3
         self.recipient_b = (self.vm_id + 2) % 3
-        
+
     def start(self):
         self.messages = []
         self.clock = 0
         filename = "log" + str(self.vm_id) + ".txt"
         self.log = open(filename, "w")
         self.run()
-    
+
     def pop_message(self):
         if len(self.messages) != 0:
             message = self.messages.pop(0)
@@ -33,7 +33,7 @@ class Model():
             log_entry = "RECEIVE: " + "[message] " + message + "; [global] " + str(datetime.now()) + "; [queue length] " + str(len(self.messages)) + "; [logical clock time] " + str(self.clock) + "\n"
             self.log.write(log_entry)
         return None
-        
+
     def run(self):
         while True:
             sleep(1.0 / self.ticks)
@@ -62,11 +62,7 @@ class Model():
                     pass
             else:
                 self.pop_message()
-                
+
     def log_send(self, recipient):
         log_entry = "SEND: [global] " + str(datetime.now()) + "; [queue length] " + str(len(self.messages)) + "; [logical clock time] " + str(self.clock) + "\n"
-<<<<<<< HEAD
         self.log.write(log_entry)
-=======
-        self.log.write(log_entry)
->>>>>>> 9bd1c8c4239e8747d5d5292dd6689b8b056cb2b1
