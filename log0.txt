@@ -1,0 +1,7 @@
+RECEIVE: [message] 3; [global] 2018-03-01 21:43:04.981807; [queue length] 0; [logical clock time] 6
+RECEIVE: [message] 9; [global] 2018-03-01 21:43:06.484240; [queue length] 0; [logical clock time] 10
+RECEIVE: [message] 10; [global] 2018-03-01 21:43:06.651089; [queue length] 0; [logical clock time] 11
+RECEIVE: [message] 15; [global] 2018-03-01 21:43:08.153501; [queue length] 0; [logical clock time] 17
+RECEIVE: [message] 16; [global] 2018-03-01 21:43:08.487475; [queue length] 0; [logical clock time] 18
+RECEIVE: [message] 18; [global] 2018-03-01 21:43:09.155037; [queue length] 0; [logical clock time] 19
+RECEIVE: [message] 19; [global] 2018-03-01 21:43:09.489008; [queue length] 0; [logical clock time] 20
