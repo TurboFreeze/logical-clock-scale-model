@@ -1,7 +1,9 @@
-RECEIVE: [message] 3; [global] 2018-03-01 21:43:04.981807; [queue length] 0; [logical clock time] 6
-RECEIVE: [message] 9; [global] 2018-03-01 21:43:06.484240; [queue length] 0; [logical clock time] 10
-RECEIVE: [message] 10; [global] 2018-03-01 21:43:06.651089; [queue length] 0; [logical clock time] 11
-RECEIVE: [message] 15; [global] 2018-03-01 21:43:08.153501; [queue length] 0; [logical clock time] 17
-RECEIVE: [message] 16; [global] 2018-03-01 21:43:08.487475; [queue length] 0; [logical clock time] 18
-RECEIVE: [message] 18; [global] 2018-03-01 21:43:09.155037; [queue length] 0; [logical clock time] 19
-RECEIVE: [message] 19; [global] 2018-03-01 21:43:09.489008; [queue length] 0; [logical clock time] 20
+SEND: [global] 2018-03-03 13:26:53.400445; [recipient] 1; [queue length] 0; [logical clock time] 1
+SEND: [global] 2018-03-03 13:26:53.400512; [recipient] 2; [queue length] 0; [logical clock time] 1
+SEND: [global] 2018-03-03 13:26:55.411206; [recipient] 1; [queue length] 0; [logical clock time] 2
+SEND: [global] 2018-03-03 13:26:55.411251; [recipient] 2; [queue length] 0; [logical clock time] 2
+RECEIVE: [message] 5; [global] 2018-03-03 13:26:56.416545; [queue length] 0; [logical clock time] 5
+RECEIVE: [message] 6; [global] 2018-03-03 13:26:57.416733; [queue length] 0; [logical clock time] 6
+RECEIVE: [message] 8; [global] 2018-03-03 13:26:59.419815; [queue length] 0; [logical clock time] 8
+RECEIVE: [message] 9; [global] 2018-03-03 13:27:00.420757; [queue length] 0; [logical clock time] 9
+SEND: [global] 2018-03-03 13:27:01.424889; [recipient] 1; [queue length] 0; [logical clock time] 10
