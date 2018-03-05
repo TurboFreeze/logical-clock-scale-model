@@ -24,6 +24,7 @@ class Model():
         # Calculate the ID for the two machines
         self.recipient_a = (self.vm_id + 1) % 3
         self.recipient_b = (self.vm_id + 2) % 3
+        
 
     def start(self):
         """
@@ -35,6 +36,7 @@ class Model():
         self.clock = 0
         filename = "log" + str(self.vm_id) + ".txt"
         self.log = open(filename, "w")
+        self.log.write("vm_id: " + str(self.vm_id) + ", ticks: " + str(self.ticks) + "\n")
         # Call the primary run() method
         self.run()
 

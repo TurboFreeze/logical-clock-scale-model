@@ -3,8 +3,4 @@ from time import sleep
 
 
 controller = Controller() # fires off model/vm threads
-
-sleep(10) # let them run
-
-# exit
-
+sleep(60) # let them run

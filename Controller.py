@@ -7,7 +7,7 @@ class Controller():
     vms = [None, None, None]
     
     def __init__(self):
-        print "Controller init"
+        # print "Controller init"
         # TODO threading?
         self.vms[0] = Model(randint(1,6), 0, self) # TODO get rid of spaghetti with sockets
         self.vms[1] = Model(randint(1,6), 1, self)

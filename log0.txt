@@ -1,9 +1,0 @@
-SEND: [global] 2018-03-03 13:26:53.400445; [recipient] 1; [queue length] 0; [logical clock time] 1
-SEND: [global] 2018-03-03 13:26:53.400512; [recipient] 2; [queue length] 0; [logical clock time] 1
-SEND: [global] 2018-03-03 13:26:55.411206; [recipient] 1; [queue length] 0; [logical clock time] 2
-SEND: [global] 2018-03-03 13:26:55.411251; [recipient] 2; [queue length] 0; [logical clock time] 2
-RECEIVE: [message] 5; [global] 2018-03-03 13:26:56.416545; [queue length] 0; [logical clock time] 5
-RECEIVE: [message] 6; [global] 2018-03-03 13:26:57.416733; [queue length] 0; [logical clock time] 6
-RECEIVE: [message] 8; [global] 2018-03-03 13:26:59.419815; [queue length] 0; [logical clock time] 8
-RECEIVE: [message] 9; [global] 2018-03-03 13:27:00.420757; [queue length] 0; [logical clock time] 9
-SEND: [global] 2018-03-03 13:27:01.424889; [recipient] 1; [queue length] 0; [logical clock time] 10
