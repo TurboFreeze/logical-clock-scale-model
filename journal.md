@@ -14,7 +14,7 @@ The controller facilitates all communications between the virtual machines. All 
 
 Each virtual machine runs on a different thread since multi-threading most closely emulates a virtual machine when using a single process, just as a scale model is intended to do.
 
-As specified for the virtual machine, it is initialized with a number representing the clock ticks per (real world) second for that machine. Multi-threading is beneficial here, since each machine running in its individual thread means that clock speed can be simulated by sleeping the thread for the specified time per tick. At each tick, either process the first message in the queue or, if there are no pending messages, a randomly generated value per the specifications determines the machine's actions on whether to send and who to send to. The logical clock is updated accordingly (see below for more details).
+As specified for the virtual machine, it is initialized with a number representing the clock ticks per (real world) second for that machine. Multi-threading allows us to easily simulate disparate clock speeds by simply sleeping a machine's thread. At each tick, either process the first message in the queue or, if there are no pending messages, a randomly generated value per the specifications determines the machine's actions on whether to send and who to send to. The logical clock is updated accordingly (see below for more details).
 
 Also as specified, each machine has an open network queue for incoming messages that the controller can modify as appropriate. Again, design considerations are targeted towards a tangible model that is simple and clear to use, while deliberately overlooking concerns such as security that should be considered in real settings. Outbound communications as discussed above are handled by the controller.
 
@@ -37,7 +37,7 @@ The size of the jumps in the values for the logical clocks appeared to be depend
 
 According to the rules of the logical clock, this intuitively makes sense. The machines with faster clocks can process messages faster than other machines could send, allowing the faster machine to send out messages at its own pace and therefore rarely needing to catch up. The opposite is true for slower machines, which will more likely than not have messages continuously queued up faster than they can be processed. Since the other faster machines continue to send out several messages that increment the logical clock by 1, this slow machine would continuously need to catch up and see abrupt forward jumps.
 
-There are even occasional duplicates, which resulted from when both the other machines sent a message simultaneously to this machines.
+There are even occasional duplicates, which resulted from when both the other machines sent a message simultaneously to this machine.
 
 `SEND: [global] 2018-03-04 23:30:58.077947; [recipient] 2; [queue length] 0; [logical clock time] 55`
 
@@ -48,7 +48,7 @@ There are even occasional duplicates, which resulted from when both the other ma
 When examining drift in the values of the local logical clocks in the different machines, there is certainly drift between relatively slow and relatively fast clocks. In one instance, vm0 (ticks = 1) ended at logical time of 86 in trial0, whereas vm1 (ticks = 6) ended at logical 109. As mentioned before, the slower machines need to jump regularly to catch up, meaning that they perpetually need to catch up. In other words, the faster machines are the ones that "define the speed" by constantly sending messages, while slower ones are "speed takers" and frequently experience a drift from the "true value".
 
 #### Gaps in Logical Clock and Message Queues
-When relative clock speed is low (e.g. ticks = 1), machine is almost always receiving since other machines get ahead of it. This means message queue is almost never empty and usually grows as other (faster) machines fill it. When relative clock speed is high (e.g. ticks = 6), machine is mostly sending, since its clock is fast enough to handle its message queue and keep it near empty.
+When relative clock speed is low (e.g. ticks = 1), a machine is almost always receiving since other machines get ahead of it. This means its message queue is almost never empty and usually grows as other (faster) machines fill it. When relative clock speed is high (e.g. ticks = 6), a machine is mostly sending, since its clock is fast enough to handle its message queue and keep it near empty.
 
 #### More Trials
 
@@ -56,6 +56,6 @@ When relative clock speed is low (e.g. ticks = 1), machine is almost always rece
 
 **Larger Time Variations**: When machines have larger discrepencies between their clock speeds. With clock speeds of `vm0: 30, vm1: 53, vm2: 12`, vm2 has 117 cycles that are _all_ receive entries. vm1 is clearly mostly all sends while vm0 is a very even split between sends and receives. These are more extreme and clearer instances of the previous discussion. The slow machines mostly receive and try to catch up while the faster machines are the dominant time setter with smoother time increments.
 
-**No Internal Events**: Interestingly, when setting internal events to only send messages, (i.e. generate a value between 1 and 3 inclusive), the fastest machine _solely_ sends machines while the two slower machines _entirely_ receive messages, essentially exaggerating the logical clock effects that are being examined and have been discussed.
+**No Internal Events**: Interestingly, when setting internal events to only send messages, (i.e. generate a value between 1 and 3 inclusive), the fastest machine _solely_ sends to machines while the two slower machines _entirely_ receive messages, essentially exaggerating the logical clock effects that are being examined and have been discussed.
 
 **More Internal Events**: Again interestingly, with a range of 100 values for the possible machine events, the chance of sending a message is very low, essentially countering the effect of large time variations since the probability of sending a message is low regardless of the clock speed. As a result, the ratio of sends to receives between the three machines despite large time variations of 100 possible clock speeds. 
