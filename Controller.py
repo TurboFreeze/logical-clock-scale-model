@@ -12,7 +12,7 @@ class Controller():
         """
         print "Controller init"
 
-        speed_range = 6
+        speed_range = 10
         # Initializing the virtual machines
         self.vms[0] = Model(randint(1, speed_range), 0, self)
         self.vms[1] = Model(randint(1, speed_range), 1, self)
